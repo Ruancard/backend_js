@@ -1,0 +1,127 @@
+<%- include('./components/top', {page:page}) %>
+
+<div class="form-container">
+  <form method="post" action="/addprocesso">
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label" for="numero">Número do Processo:</label>
+        <input
+          class="form-input"
+          type="text"
+          id="numero"
+          name="numero"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="nome-processo">Nome do Processo:</label>
+        <input
+          class="form-input"
+          type="text"
+          id="nome-processo"
+          name="nome"
+          required
+        />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label" for="data-inicio-processo"
+          >Data de Início do Processo:</label
+        >
+        <input
+          class="form-input"
+          type="date"
+          id="data-inicio-processo"
+          name="dt_inicio"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="observacao-processo"
+          >Observação do Processo:</label
+        >
+        <textarea
+          class="form-input"
+          id="observacao-processo"
+          name="observacao"
+          required
+        ></textarea>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="descricao-processo"
+        >Descrição do Processo:</label
+      >
+      <textarea
+        class="form-input"
+        id="descricao-processo"
+        name="descricao"
+        required
+      ></textarea>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label" for="advogado-acusacao"
+          >Advogado de Acusação:</label
+        >
+        <input
+          class="form-input"
+          type="text"
+          id="advogado-acusacao"
+          name="acusacao"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="advogado-defesa"
+          >Advogado de Defesa:</label
+        >
+        <input
+          class="form-input"
+          type="text"
+          id="advogado-defesa"
+          name="defesa"
+          required
+        />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label" for="requerente">Requerente:</label>
+        <input
+          class="form-input"
+          type="text"
+          id="requerente"
+          name="requerente"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="reu">Réu:</label>
+        <input class="form-input" type="text" id="reu" name="reu" required />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label" for="juiz">Juiz:</label>
+        <input class="form-input" type="text" id="juiz" name="juiz" required />
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="vara">Vara:</label>
+        <input class="form-input" type="text" id="vara" name="vara" required />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label" for="link">link:</label>
+        <input class="form-input" type="text" id="link" name="link" required />
+      </div>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="form-button">salvar</button>
+    </div>
+  </form>
+</div>
+
+<%- include('./components/bottom') %>

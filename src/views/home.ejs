@@ -1,0 +1,61 @@
+<%- include('./components/top', {page:page}) %>
+
+<div class="table-container">
+  <table>
+    <tr>
+      <th>Nome</th>
+      <th>Numero</th>
+      <th>Vara</th>
+      <th>Requerente</th>
+      <th>Reu</th>
+      <th>Adv. Acusação</th>
+      <th>Adv. Defesa</th>
+      <th>Juiz</th>
+      <th>Início</th>
+      <th>editar</th>
+    </tr>
+    <% if (processos.length > 0) { %> <% processos.forEach(function(processo) {
+    %>
+    <tr>
+      <td>
+        <a href="/processos/<%= processo.numero%>"><%= processo.numero %></a>
+      </td>
+      <td>
+        <a href="/processos/<%= processo.numero%>"><%= processo.nome %></a>
+      </td>
+      <td>
+        <a href="/processos/<%= processo.numero%>"
+          ><%= processo.requerente %></a>
+      </td>
+      <td>
+        <a href="/processos/<%= processo.numero%>"><%= processo.reu %></a>
+      </td>
+      <td>
+        <a href="/processos/<%= processo.numero%>"><%= processo.acusacao %></a>
+      </td>
+      <td>
+        <a href="/processos/<%= processo.numero%>"><%= processo.defesa %></a>
+      </td>
+      <td>
+        <a href="/processos/<%= processo.numero%>"><%= processo.juiz %></a>
+      </td>
+      <td>
+        <a href="/processos/<%= processo.numero%>"><%= processo.vara %></a>
+      </td>
+      <td>
+        <a href="/processos/<%= processo.numero%>"><%= ("0" + processo.dt_inicio.getDate()).slice(-2) %>/<%= ("0" + processo.dt_inicio.getMonth()).slice(-2) %>/<%= processo.dt_inicio.getFullYear() %></a>
+      </td>
+      <td>
+        <a href="/editarprocesso/<%= processo.numero%>"><i class="fa-solid fa-pen"></i></a>
+      </td>
+    </tr>
+    <% }); %> <% } else{ %>
+    <tr>
+      <td>nenhum processo disponivel</td>
+    </tr>
+
+    <% } %>
+  </table>
+</div>
+
+<%- include('./components/bottom') %>

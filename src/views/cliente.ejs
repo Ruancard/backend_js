@@ -1,0 +1,89 @@
+<%- include('./components/top', {page:page}) %>
+<div class="profile_container">
+  <% if (cliente) { %>
+
+    <div class="image">
+      <img src="/uploads/clientes/<%= cliente.cpf %>.png" alt="foto de perfil">
+    </div>
+    <div class="info">
+      <h2>cpf</h2>
+      <p><%= cliente.cpf %></p>
+      <h2>nome</h2>
+      <p><%= cliente.nome %></p>
+      <h2>Data de nascimento</h2>
+      <p><%= ("0" + cliente.nascimento.getDate()).slice(-2) %>/<%= ("0" + cliente.nascimento.getMonth()).slice(-2) %>/<%= cliente.nascimento.getFullYear() %></p>
+      <h2>E-mail</h2>
+      <p><%= cliente.email %></p>
+      <h2>Telefone</h2>
+      <p>(<%= cliente.ddd %>) <%= cliente.tel %></p>
+      <h2>Endereço</h2>
+      <p><%= cliente.rua %>, <%= cliente.numero %>, <%= cliente.bairro %>, <%= cliente.cidade %>, <%= cliente.estado %>, CEP <%= cliente.cep %></p>
+    </div>
+
+  <div class="table-container">
+    <table class="pag_table">
+      <tr>
+        <td>Numero do processo</td>
+        <td>Nome do processo</td>
+        <td>requerente</td>
+        <td>Réu</td>
+        <td>Advogado de acusação</td>
+        <td>advogado de defesa</td>
+        <td>Juiz</td>
+        <td>vara</td>
+        <td>Inicio do processo</td>
+        <td>Editar</td>
+      </tr>
+      <% if (processos.length > 0) { %> <% processos.forEach(function(processo)
+      { %>
+      <tr>
+        <td>
+          <a href="/processos/<%= processo.numero %>"><%= processo.numero %></a>
+        </td>
+        <td>
+          <a href="/processos/<%= processo.numero%>"><%= processo.nome %></a>
+        </td>
+        <td>
+          <a href="/processos/<%= processo.numero%>"
+            ><%= processo.requerente %></a>
+        </td>
+        <td>
+          <a href="/processos/<%= processo.numero%>"><%= processo.reu %></a>
+        </td>
+        <td>
+          <a href="/processos/<%= processo.numero%>"
+            ><%= processo.acusacao %></a>
+        </td>
+        <td>
+          <a href="/processos/<%= processo.numero%>"><%= processo.defesa %></a>
+        </td>
+        <td>
+          <a href="/processos/<%= processo.numero%>"><%= processo.juiz %></a>
+        </td>
+        <td>
+          <a href="/processos/<%= processo.numero%>"><%= processo.vara %></a>
+        </td>
+        <td>
+          <a href="/processos/<%= processo.numero%>"
+            ><%= ("0" + processo.dt_inicio.getDate()).slice(-2) %>/<%= ("0" + processo.dt_inicio.getMonth()).slice(-2) %>/<%= processo.dt_inicio.getFullYear() %></a>
+        </td>
+        <td>
+          <a href="/editarprocesso/<%= processo.numero%>"><i class="fa-solid fa-pen"></i></a>
+        </td>
+      </tr>
+      <% }); %> <% } else{ %>
+      <tr>
+        <td>nenhum processo disponivel</td>
+      </tr>
+
+      <% } %>
+    </table>
+
+    <% } else{ %>
+
+    <h1>usuario não encontrado</h1>
+
+    <% } %>
+  </div>
+</div>
+<%- include('./components/bottom') %>

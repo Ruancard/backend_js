@@ -1,0 +1,123 @@
+<%- include('./components/top', {page:page}) %>
+
+<div class="form-container">
+  <% if (processo) { %>
+  <form method="post" action="/edtprocesso/<%= processo.numero %>">
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label" for="nome-processo">Nome do Processo:</label>
+        <input
+          class="form-input"
+          type="text"
+          id="nome-processo"
+          name="nome"
+          value="<%= processo.nome %>"
+        />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label" for="observacao-processo"
+          >Observação do Processo:</label
+        >
+        <textarea class="form-input" id="observacao-processo" name="observacao">
+<%= processo.observacao %></textarea
+        >
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="descricao-processo"
+        >Descrição do Processo:</label
+      >
+      <textarea class="form-input" id="descricao-processo" name="descricao">
+<%= processo.descricao %></textarea
+      >
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label" for="advogado-acusacao"
+          >Advogado de Acusação:</label
+        >
+        <input
+          class="form-input"
+          type="text"
+          id="advogado-acusacao"
+          name="acusacao"
+          value="<%= processo.acusacao %>"
+        />
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="advogado-defesa"
+          >Advogado de Defesa:</label
+        >
+        <input
+          class="form-input"
+          type="text"
+          id="advogado-defesa"
+          name="defesa"
+          value="<%= processo.defesa %>"
+        />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label" for="requerente">Requerente:</label>
+        <input
+          class="form-input"
+          type="text"
+          id="requerente"
+          name="requerente"
+          value="<%= processo.requerente %>"
+        />
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="reu">Réu:</label>
+        <input
+          class="form-input"
+          type="text"
+          id="reu"
+          name="reu"
+          value="<%= processo.reu %>"
+        />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label" for="juiz">Juiz:</label>
+        <input
+          class="form-input"
+          type="text"
+          id="juiz"
+          name="juiz"
+          value="<%= processo.juiz %>"
+        />
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="vara">Vara:</label>
+        <input
+          class="form-input"
+          type="text"
+          id="vara"
+          name="vara"
+          value="<%= processo.vara %>"
+        />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label" for="link">link:</label>
+        <input class="form-input" type="text" id="link" name="link" value="<%= processo.link %>" />
+      </div>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="form-button">salvar</button>
+    </div>
+  </form>
+  <% } else{ %>
+
+  <h1>processo não encontrado</h1>
+
+  <% } %>
+</div>
+
+<%- include('./components/bottom') %>

@@ -1,0 +1,58 @@
+<%- include('./components/top', {page:page}) %>
+
+<div class="table-container">
+  <table>
+    <tr>
+      <td>oab</td>
+      <td>usuario</td>
+      <td>nome</td>
+      <td>telefone</td>
+      <td>email</td>
+      <td>cep</td>
+      <td>cidade</td>
+      <td>estado</td>
+      <td>data de nascimento</td>
+    </tr>
+    <% if (advogados.length > 0) { %> <% advogados.forEach(function(advogado) {
+    %>
+    <tr>
+      <td>
+        <a href="/profile/<%= advogado.usuario %>"><%= advogado.oab %></a>
+      </td>
+      <td>
+        <a href="/profile/<%= advogado.usuario %>"><%= advogado.usuario %></a>
+      </td>
+      <td>
+        <a href="/profile/<%= advogado.usuario %>"><%= advogado.nome %></a>
+      </td>
+      <td>
+        <a href="/profile/<%= advogado.usuario %>"><%= advogado.tel %></a>
+      </td>
+      <td>
+        <a href="/profile/<%= advogado.usuario %>"><%= advogado.email %></a>
+      </td>
+      <td>
+        <a href="/profile/<%= advogado.usuario %>"><%= advogado.cep %></a>
+      </td>
+      <td>
+        <a href="/profile/<%= advogado.usuario %>"><%= advogado.cidade %></a>
+      </td>
+      <td>
+        <a href="/profile/<%= advogado.usuario %>"><%= advogado.estado %></a>
+      </td>
+      <td>
+        <a href="/profile/<%= advogado.usuario %>"
+          ><%= ("0" + advogado.nascimento.getDate()).slice(-2) %>/<%= ("0" + advogado.nascimento.getMonth()).slice(-2) %>/<%= advogado.nascimento.getFullYear() %></a
+        >
+      </td>
+    </tr>
+    <% }); %> <% } else{ %>
+    <tr>
+      <td>nenhum advogado cadastrado</td>
+    </tr>
+
+    <% } %>
+  </table>
+</div>
+
+<%- include('./components/bottom') %>

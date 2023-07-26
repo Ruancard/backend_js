@@ -1,0 +1,45 @@
+<%- include('./components/top', {page:page}) %>
+
+<div class="table-container">
+  <table>
+    <tr>
+      <td>cpf</td>
+      <td>nome</td>
+      <td>email</td>
+      <td>telefone</td>
+      <td>cep</td>
+      <td>cidade</td>
+      <td>estado</td>
+      <td>data de nascimento</td>
+      <td>Editar</td>
+    </tr>
+    <% if (clientes.length > 0) { %> <% clientes.forEach(function(cliente) { %>
+    <tr>
+      <td><a href="/clientes/<%= cliente.cpf %>"><%= cliente.cpf %></a></td>
+      <td><a href="/clientes/<%= cliente.cpf %>"><%= cliente.nome %></a></td>
+      <td><a href="/clientes/<%= cliente.cpf %>"><%= cliente.email %></a></td>
+      <td>
+        <a href="/clientes/<%= cliente.cpf %>"><%= cliente.tel %></a>
+      </td>
+      <td><a href="/clientes/<%= cliente.cpf %>"><%= cliente.cep %></a></td>
+      <td><a href="/clientes/<%= cliente.cpf %>"><%= cliente.cidade %></a></td>
+      <td><a href="/clientes/<%= cliente.cpf %>"><%= cliente.estado %></a></td>
+      <td>
+        <a href="/clientes/<%= cliente.cpf %>"
+          ><%= ("0" + cliente.nascimento.getDate()).slice(-2) %>/<%= ("0" + cliente.nascimento.getMonth()).slice(-2) %>/<%= cliente.nascimento.getFullYear() %></a
+        >
+      </td>
+      <td>
+        <a href=""><i class="fa-solid fa-pen"></i></a>
+      </td>
+    </tr>
+    <% }); %> <% } else{ %>
+    <tr>
+      <td>nenhum cliente cadastrado</td>
+    </tr>
+
+    <% } %>
+  </table>
+</div>
+
+<%- include('./components/bottom') %>

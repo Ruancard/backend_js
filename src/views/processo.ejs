@@ -1,0 +1,44 @@
+<%- include('./components/top', {page:page}) %>
+<div class="profile_container">
+  <main>
+  <% if (processo) { %>
+        <div class="info">
+          <h2>Número do processo</h2>
+          <p><%= processo.numero %></p>
+          <h2>Nome do processo</h2>
+          <p><%= processo.nome %></p>
+          <h2>Descrição do processo</h2>
+          <p><%= processo.descricao %></p>
+          <h2>Observação do processo</h2>
+          <p><%= processo.observacao %></p>
+          <h2>Vara</h2>
+          <p><%= processo.vara %></p>
+          <h2>Requerente</h2>
+          <p><%= processo.requerente %></p>
+          <h2>Réu</h2>
+          <p><%= processo.reu %></p>
+          <h2>Advogado de acusação</h2>
+          <p><%= processo.acusacao %></p>
+          <h2>Advogado de defesa</h2>
+          <p><%= processo.defesa %></p>
+          <h2>Juiz</h2>
+          <p><%= processo.juiz %></p>
+          <h2>Data de início</h2>
+          <p><%= ("0" + processo.dt_inicio.getDate()).slice(-2) %>/<%= ("0" + processo.dt_inicio.getMonth()).slice(-2) %>/<%= processo.dt_inicio.getFullYear() %> %></p>
+          <h2>Data da última atualização</h2>
+          <% if (processo.dt_att) { %>
+          <p><%= ("0" + processo.dt_att.getDate()).slice(-2) %>/<%= ("0" + processo.dt_att.getMonth()).slice(-2) %>/<%= processo.dt_att.getFullYear() %></p>
+          <% } else{ %>
+            nenhuma atualização
+          <% } %>
+          <a href="<%= processo.link %>">acessar pagina do processo</a>
+        </div>
+      
+  <% } else{ %>
+
+  <h1>usuario não encontrado</h1>
+
+  <% } %>
+</main>
+</div>
+<%- include('./components/bottom') %>

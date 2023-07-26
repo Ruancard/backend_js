@@ -1,0 +1,75 @@
+<%- include('./components/top', {page:page}) %>
+
+<div class="form-container">
+     <form method="post" action="/addcliente" enctype="multipart/form-data">
+       <div class="form-row">
+         <div class="form-group">
+           <label class="form-label" for="numero">CPF:</label>
+           <input class="form-input" type="text" id="numero" name="numero" required>
+         </div>
+         <div class="form-group">
+           <label class="form-label" for="nascimento">Nascimento:</label>
+           <input class="form-input" type="date" id="nascimento" name="nascimento" required>
+         </div>
+     </div>
+     <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="nome">Nome:</label>
+              <input class="form-input" type="text" id="nome" name="nome" required>
+            </div>
+       </div>
+       <div class="form-row">
+         <div class="form-group">
+           <label class="form-label" for="email">Email:</label>
+           <input class="form-input" type="email" id="email" name="email" required>
+         </div>
+      </div>
+      <div class="form-row">
+         <div class="form-group">
+           <label class="form-label" for="tel">Telefone:</label>
+           <input class="form-input" type="tel" id="tel" name="tel" required>
+         </div>
+      </div>
+      <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="estado">Estado:</label>
+              <input class="form-input" type="text" id="estado" name="estado" required>
+            </div>
+         <div class="form-group">
+           <label class="form-label" for="cidade">Cidade:</label>
+           <input class="form-input" type="text" id="cidade" name="cidade" required>
+         </div>
+      </div>
+      <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="bairro">Bairro:</label>
+              <input class="form-input" type="text" id="bairro" name="bairro" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cep">CEP:</label>
+              <input class="form-input" type="text" id="cep" name="cep" required>
+            </div>
+           </div>
+           <div class="form-row">
+           <div class="form-group">
+             <label class="form-label" for="rua">Rua:</label>
+             <input class="form-input" type="text" id="rua" name="rua" required>
+           </div>
+           <div class="form-group">
+             <label class="form-label" for="num">Número:</label>
+             <input class="form-input" type="text" id="num" name="num" required>
+           </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="arquivo-processo">foto do cliente</label>
+          <input class="form-input" type="file" id="arquivo-processo" name="arquivo" accept="image/*" required>
+        </div>
+      </div>
+      <div class="form-group">
+         <button type="submit" class="form-button">salvar</button>
+       </div>
+     </form>
+   </div>
+
+   <%- include('./components/bottom') %>
